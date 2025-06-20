@@ -1,0 +1,20 @@
+{
+    "model" : {
+        "architecture":         "UpscaleUGSIIRR221",
+        "input_channel_num":    4,
+        "output_channel_num":   3,
+        "input_width_height":   128,
+        "lateral_channel_num":  100
+    },
+    "trn": {
+        "continue_model": "/home.dokt/spetlrad/datagrid/reflections/experiments/2020-10-23_20-18-59-261980_corr_a=UpscaleUGSIIRR221_ic=4_o=adamw_wd=1E-03_lr=1E-03_bs=50_c=l1=1E+00_l2=3E-01_dxy=1E+00_dx2=1E+00_dx3=1E+00_dx4=1E+00_dx5=1E+00_dx6=1E+00_fgw=1E+00_bgw=1E+00_lc=100_fm=0_bof-satone_0.0-1.0_lmt=prcs_grt=rea_aug-ref_w_aug_4/epoch=001811_val_avg-loss-best",
+        "continue_model_partly": "",
+
+        "dataset_directory":   "/home.dokt/spetlrad/datagrid/reflections/db/SIRR_dataset_homogr/",
+        "dataset_dirnames": ["lamps", "glasses", "SIRR_dataset_homogr", "boxes", "dust_removal"],
+
+        "visual_inspection_directory":   "/home.dokt/spetlrad/datagrid/reflections/visual_inspection",
+
+        "batch_size":                       1
+    }
+}

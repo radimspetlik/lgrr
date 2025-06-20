@@ -1,0 +1,8 @@
+*__pycache__
+cookie
+geckodriver.log
+.DS_Store
+venv
+.idea
+nn/trn/confs/
+

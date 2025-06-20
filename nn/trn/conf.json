@@ -1,0 +1,90 @@
+{
+    "model" : {
+        "architecture":         "UpscaleUGSIIRR221",
+        "input_channel_num":    4,
+        "output_channel_num":   3,
+        "input_width_height":   128,
+        "lateral_channel_num":  100
+    },
+    "trn": {
+        "task": "corr",
+        "tasks": ["sep", "corr"],
+        "additional_info": "",
+
+        "store_images_every_Xth_epoch": 1,
+
+        "continue_model": "",
+        "continue_model_partly": "/mnt/datagrid/personal/spetlrad/reflections/experiments/2020-10-23_20-18-59-261980_corr_a=UpscaleUGSIIRR221_ic=4_o=adamw_wd=1E-03_lr=1E-03_bs=50_c=l1=1E+00_l2=3E-01_dxy=1E+00_dx2=1E+00_dx3=1E+00_dx4=1E+00_dx5=1E+00_dx6=1E+00_fgw=1E+00_bgw=1E+00_lc=100_fm=0_bof-satone_0.0-1.0_lmt=prcs_grt=rea_aug-ref_w_aug_4/epoch=001811_val_avg-loss-best",
+
+        "coco_train2017_directory":   "/mnt/datagrid/public_datasets/COCO/test2017/",
+        "lamp_dataset_directory":   "/home.dokt/spetlrad/datagrid/reflections/db/lamps/",
+
+        "experiments_directory":   "/home.dokt/spetlrad/datagrid/reflections/experiments",
+
+        "batch_size":                       15,
+        "epochs":                           10,
+        "optimizer":                        "adamw",
+        "optimizers":                       ["adam","adamw","sgd"],
+        "momentum":                         0.0,
+        "weight_decay":                     0.001,
+
+        "learning_rate":                    1e-3,
+
+        "loss_fg_weight":                   1,
+        "loss_bg_weight":                   1,
+
+        "criterions": {
+            "l1": 1,
+            "l2": 0.3,
+            "dxdy": 1,
+            "dx2dy2": 1,
+            "dx3dy3": 1,
+            "dx4dy4": 1,
+            "dx5dy5": 1,
+            "dx6dy6": 1
+        },
+        "all_criterions": ["l1", "l2", "l2sq", "dxdy", "dx2dy2", "dx3dy3", "dx4dy4", "dx5dy5", "dx6dy6"],
+
+        "loss_mask_type":                   "prcs",
+        "loss_mask_types":                  ["ones", "prcs"],
+        "loss_mask_kernel_size":            31,
+        "loss_mask_gaussian_blur_sigma":    0.0,
+
+        "feed_mask": false,
+
+        "blend_on_fly": true,
+        "blend_alpha_min": 0.0,
+        "blend_alpha_max": 1.0,
+        "blend_on_fly_mode": "satone",
+        "blend_on_fly_modes": ["nosat", "nosatbeta","nosatexp", "nosatone", "satone", "imp", "zha", "add", "set", "scr", "imp-rnd"],
+        "blend_on_fly_reflection_color": [0, 165, 255],
+
+        "reflection": "rea",
+        "reflections": ["gen", "ble", "rea"],
+
+        "generate_refl_type": "haar",
+        "generate_refl_size": 11,
+
+        "exact_mask": true,
+
+        "augment": false,
+        "augment_reflection": {
+            "active": true,
+            "pBlendAlpha": 1.0,
+            "BlendAlphaFactor": [0.7, 0.9],
+            "BlendAlphaX": [-15, 15],
+            "BlendAlphaY": [-15, 15],
+            "pGaussianBlur": 0.2,
+            "GaussianBlurSigma": [1.0, 1.5],
+            "pChangeColorTemperature": 0.3,
+            "ChangeColorTemperature": [1100, 6000],
+            "LinearContrast": [1.0, 2.0],
+            "pFliplr": 0.5,
+            "pFlipud": 0.5,
+            "AffineRotate": [0, 360],
+            "AffineShear": [0, 20],
+            "AffineScale": [0.5, 1.2],
+            "addValue": [-10,10]
+        }
+    }
+}
