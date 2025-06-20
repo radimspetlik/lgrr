@@ -1,7 +1,7 @@
 # Single-Image Localised Reflection Removal with *k*-Order Differences Term
-Official PyTorch implementation of the SCIA 2025 paper **“Single-Image Localised Reflection Removal with *k*-Order Differences Term”**.  
-
----  
+Official PyTorch implementation of the 
+**“Single-Image Localised Reflection Removal with *k*-Order Differences Term”** paper
+accepted to Scandinavian Conference on Image Analysis, to appear in proceedings of the conference.
 
 ## Lamps Dataset
 
@@ -81,6 +81,19 @@ The configuration file `conf_visual_inspection.json` contains the following :
 >`"visual_inspection_directory"` a directory in which the results will be stored (if it doe not exists, it will be created)
 
 The rest of the configuration json should be left intact.
+
+## Citation
+
+If you use this code or the dataset in your research, please cite our paper:
+
+```bibtex
+@inproceedings{Spetlik2025LGRR,
+  title       = {Single-Image Localised Reflection Removal with k-Order Differences Term},
+  author      = {Radim Spetlik and Jiří Matas},
+  booktitle   = "Image Analysis",
+  year        = {2025}
+}
+```
 
 ---
 
